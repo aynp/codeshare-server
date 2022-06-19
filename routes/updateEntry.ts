@@ -9,10 +9,13 @@ const updateEntry = async (req: Request, res: Response) => {
 
     const entry = await ShareSchema.findOne({ link: { $eq: link } });
 
-    if (password !== undefined) entry.password = await hashPassword(password);
+    if (password !== undefined) {
+      entry.password = await hashPassword(password);
+    }
 
     if (body) entry.body = body;
     if (lang) entry.lang = lang;
+
     entry.save();
 
     res.status(204).json({
