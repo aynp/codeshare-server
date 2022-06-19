@@ -5,12 +5,6 @@ import bodyParser from "body-parser";
 
 const app = express();
 
-// app.use(
-//   cors({
-//     origin: process.env.CLIENT_URL,
-//   })
-// );
-
 app.use((_req: Request, res: Response, next: NextFunction) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
