@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { hashPassword } from "../helper_functions/helperFunctions";
+import { hashPassword } from "../helper_functions/passwordHelperFunctions";
 import ShareSchema from "../models/ShareSchema";
 
 const updateEntry = async (req: Request, res: Response) => {

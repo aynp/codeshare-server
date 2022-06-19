@@ -1,17 +1,17 @@
-import express from "express";
+import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
 import router from "./routes/routes";
 import bodyParser from "body-parser";
 
 const app = express();
 
-app.use(
-  cors({
-    origin: process.env.CLIENT_URL,
-  })
-);
+// app.use(
+//   cors({
+//     origin: process.env.CLIENT_URL,
+//   })
+// );
 
-app.use((req, res, next) => {
+app.use((_req: Request, res: Response, next: NextFunction) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
     "Access-Control-Allow-Methods",

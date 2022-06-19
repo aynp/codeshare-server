@@ -2,7 +2,7 @@ import bcrypt from "bcrypt";
 
 export const hashPassword = async (password: string | null) => {
   try {
-    if (!password) return;
+    if (!password) throw new Error("Password Empty");
     const salt = await bcrypt.genSalt(
       parseInt(<string>process.env.BCRYPT_SALT_ROUNDS)
     );

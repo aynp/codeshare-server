@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { comparePassword } from "../helper_functions/helperFunctions";
+import { comparePassword } from "../helper_functions/passwordHelperFunctions";
 import ShareSchema from "../models/ShareSchema";
 
 const checkEditAccess = async (req: Request, res: Response) => {
