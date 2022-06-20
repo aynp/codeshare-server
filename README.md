@@ -10,9 +10,9 @@ This repo contains the server part of CodeShare.
 - ExpressJS
 - MongoDB (database)
 - bcrypt (password hashing)
-- TypeScript (because why not?)
+- TypeScript (because ~~I like suffering~~ why not?)
 
 # TODO
 
 - Client
--
+- Host both client and server
