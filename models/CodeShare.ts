@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const ShareSchema = new mongoose.Schema({
+const CodeShare = new mongoose.Schema({
   link: {
     type: String,
     immutable: true,
@@ -17,4 +17,4 @@ const ShareSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model("ShareSchema", ShareSchema);
+export default mongoose.model("CodeShare", CodeShare);

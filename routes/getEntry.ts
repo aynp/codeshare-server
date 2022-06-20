@@ -1,11 +1,11 @@
 import { Request, Response } from "express";
-import ShareSchema from "../models/ShareSchema";
+import CodeShare from "../models/CodeShare";
 
 const getEntry = async (req: Request, res: Response) => {
   try {
     const { link } = req.params;
 
-    const entry = await ShareSchema.findOne({ link: { $eq: link } });
+    const entry = await CodeShare.findOne({ link: { $eq: link } });
 
     res.status(200).json({
       success: true,

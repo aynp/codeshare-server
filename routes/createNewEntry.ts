@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
 import generateLink from "../helper_functions/genrateLink";
-import ShareSchema from "../models/ShareSchema";
+import CodeShare from "../models/CodeShare";
 
 const createNewEntry = async (req: Request, res: Response) => {
   try {
     let link = await generateLink();
     const { body, lang } = req.body;
-    await ShareSchema.create({
+    await CodeShare.create({
       link,
       body,
       lang,

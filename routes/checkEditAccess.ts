@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
 import { comparePassword } from "../helper_functions/passwordHelperFunctions";
-import ShareSchema from "../models/ShareSchema";
+import CodeShare from "../models/CodeShare";
 
 const checkEditAccess = async (req: Request, res: Response) => {
   try {
     const { link, password } = req.params;
 
-    const entry = await ShareSchema.findOne({ link: { $eq: link } });
+    const entry = await CodeShare.findOne({ link: { $eq: link } });
 
     const hasAccess =
       (await comparePassword(password, entry.password)) || !entry.password;

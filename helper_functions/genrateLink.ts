@@ -1,17 +1,19 @@
-import Schema from "../models/ShareSchema";
+import CodeShare from "../models/CodeShare";
 
 const linkSize: Number = 6;
-const randomLinkChars: String =
+const randomChars: String =
   "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890";
 
 const generateLink: any = async () => {
   try {
-    let res = "";
+    let link = "";
     for (let i = 0; i < linkSize; i++)
-      res += randomLinkChars.charAt(Math.random() * randomLinkChars.length);
-    if (!!(await Schema.findOne({ link: { $eq: res } }))) return generateLink();
-    return res;
+      link += randomChars.charAt(Math.random() * randomChars.length);
+    if (!!(await CodeShare.findOne({ link: { $eq: link } })))
+      return generateLink();
+    return link;
   } catch (err: unknown) {
+    console.log(err);
     return err;
   }
 };

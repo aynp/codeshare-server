@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { hashPassword } from "../helper_functions/passwordHelperFunctions";
-import ShareSchema from "../models/ShareSchema";
+import ShareSchema from "../models/CodeShare";
 
 const updateEntry = async (req: Request, res: Response) => {
   try {
