@@ -1,13 +1,13 @@
-import bcrypt from "bcrypt";
 import Schema from "../models/ShareSchema";
 
-const randomLinkChars =
-  "1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM";
+const linkSize: Number = 6;
+const randomLinkChars: String =
+  "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890";
 
 const generateLink: any = async () => {
   try {
     let res = "";
-    for (let i = 0; i < 6; i++)
+    for (let i = 0; i < linkSize; i++)
       res += randomLinkChars.charAt(Math.random() * randomLinkChars.length);
     if (!!(await Schema.findOne({ link: { $eq: res } }))) return generateLink();
     return res;
